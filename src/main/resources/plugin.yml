@@ -1,0 +1,49 @@
+name: Zec
+version: 1.0
+main: com.zoobastiks.zec.Main
+api-version: 1.19
+description: GUI Storage with multiple pages and permissions support
+author: Zoobastiks
+
+commands:
+  zec:
+    description: Open storage
+    usage: /zec [page]
+    permission: zec.use
+
+permissions:
+  zec.use:
+    description: Allows access to the main storage
+    default: true
+    
+  zec.use.main:
+    description: Allows access to the main storage
+    default: true
+    
+  zec.use.page1:
+    description: Allows access to the first additional storage
+    default: op
+    
+  zec.use.page2:
+    description: Allows access to the second additional storage
+    default: op
+    
+  zec.use.vip:
+    description: Allows access to the VIP storage
+    default: op
+    
+  zec.admin:
+    description: Allows access to all storage pages and admin commands
+    default: op
+    children:
+      zec.use: true
+      zec.use.main: true
+      zec.use.page1: true
+      zec.use.page2: true
+      zec.use.vip: true
+      
+  zec.admin.edit:
+    description: Allows editing of other players' storage pages
+    default: op
+    children:
+      zec.admin: true 
